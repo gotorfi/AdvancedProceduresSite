@@ -95,7 +95,8 @@
 
         "fixes": [
             "Pathfinding: Fixed the 'attempt to make a path to closest block' block so that the entity now attempts to reach the exact target block directly, rather than settling for an adjacent block.",
-            ""
+            "Variable Conversions: Fixed several issue with x, y, z variables ('cannot convert object to double').",
+            "Fill Portal: Fixed an issue where the 'Fill portal' procedure block created multiple duplicate portal planes"
 
         ]
     },
