@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feedback</title>
+
+<link rel="icon" type="image/png" href="IMG/icon.png">
+
+<link rel="stylesheet" href="CSS/variables.css">
+<link rel="stylesheet" href="CSS/layout.css">
+<link rel="stylesheet" href="CSS/components.css">
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/responsive.css">
+
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+<img src="IMG/header.png" alt="Header">
+
+</header>
+
+
+
+<nav class="navbar">
+
+<div class="navbar-logo">
+<a href="index.html">GotorFI</a>
+</div>
+
+
+<button class="navbar-toggle">
+☰
+</button>
+
+
+<ul class="navbar-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="block.html">Blocks</a></li>
+<li><a href="entity.html">Entities</a></li>
+<li><a href="component.html">Components</a></li>
+<li><a href="player.html">Players</a></li>
+<li><a href="event.html">Events</a></li>
+<li><a href="math.html">Math</a></li>
+<li><a href="misc.html">Misc</a></li>
+<li><a href="downloads.html">Downloads</a></li>
+
+</ul>
+
+</nav>
+
+
+
+<main>
+
+
+<section class="section">
+
+
+<span class="section-label">
+FEEDBACK
+</span>
+
+
+<h2>Send Feedback</h2>
+
+
+<p>
+Report bugs, suggest new procedure blocks, or request improvements.
+</p>
+
+
+<br>
+
+
+
+<form id="feedback-form" class="feedback-form">
+
+
+<label>
+Choose a Category
+</label>
+
+
+<select id="category" required>
+
+<option value="">
+Select category
+</option>
+
+<option value="Bug report">
+Bug report
+</option>
+
+<option value="Feedback">
+Feedback
+</option>
+
+<option value="New Procedure Block">
+New Procedure Block
+</option>
+
+<option value="Change existing Procedure Block">
+Change existing Procedure Block
+</option>
+
+</select>
+
+
+
+<div id="bug-fields" style="display:none;">
+
+
+<label>
+Please explain your bug report.
+</label>
+
+<textarea id="bug"></textarea>
+
+
+
+<label>
+Add screenshots or crash report files
+</label>
+
+<input 
+type="text"
+id="screenshots"
+placeholder="Paste links here">
+
+
+
+<label>
+Choose MCreator version
+</label>
+
+<input
+type="text"
+id="version"
+placeholder="Example: 2026.2">
+
+
+</div>
+
+
+
+
+<div id="normal-fields" style="display:none;">
+
+
+<label>
+Explain here
+</label>
+
+
+<textarea id="message"></textarea>
+
+
+</div>
+
+
+
+
+<label>
+Do you want me to send updates to your email when new updates arrive or when bugs are fixed?
+</label>
+
+
+<input
+type="email"
+id="email"
+placeholder="Email (optional)">
+
+
+
+<br><br>
+
+
+<button class="button-outline" type="submit">
+
+Send Feedback
+
+</button>
+
+
+
+</form>
+
+
+
+<p id="status"></p>
+
+
+</section>
+
+
+</main>
+
+
+<footer class="site-footer">
+
+<div class="footer-avatar">
+
+<img src="IMG/profile.png" alt="GotorFI">
+
+</div>
+
+
+<div class="footer-info">
+
+<h3>Advanced Procedures</h3>
+
+<p>
+Advanced Procedures plugin created by GotorFI
+and made for MCreator created by Pylo.
+</p>
+
+
+<p>
+© 2026 GotorFI. All rights reserved.
+</p>
+
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="https://mcreator.net/" target="_blank">
+MCreator Website
+</a>
+
+
+<a href="feedback.html" target="_blank">
+Feedback Form
+</a>
+
+
+</div>
+
+
+<div class="footer-logos">
+
+<img src="IMG/mcreator.png" alt="MCreator">
+
+<img src="IMG/icon.png" alt="Advanced Procedures">
+
+</div>
+
+
+</footer>
+
+
+
+<script src="JS/navbar.js"></script>
+<script src="JS/feedback.js"></script>
+
+
+</body>
+
+</html>

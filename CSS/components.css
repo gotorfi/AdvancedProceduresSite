@@ -970,3 +970,125 @@ tr:hover {
     height:45px;
 
 }
+
+/* ========================================================= */
+/* FEEDBACK FORM */
+/* ========================================================= */
+
+
+.feedback-form {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+
+.feedback-form label {
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:14px;
+
+    margin-top:10px;
+
+}
+
+
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:14px 16px;
+
+
+    background:#1f1f25;
+
+    color:white;
+
+
+    border:2px solid rgba(255,255,255,.1);
+
+    border-radius:12px;
+
+
+    font-family:"JetBrains Mono", monospace;
+
+    font-size:14px;
+
+
+    transition:.2s;
+
+}
+
+
+
+.feedback-form textarea {
+
+    min-height:150px;
+
+    resize:vertical;
+
+}
+
+
+
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+
+
+    outline:none;
+
+    border-color:#4a57a8;
+
+
+    box-shadow:
+
+        0 0 15px rgba(74,87,168,.35);
+
+}
+
+
+
+.feedback-form select option {
+
+    background:#1f1f25;
+
+    color:white;
+
+}
+
+
+
+/* Status message */
+
+
+#status {
+
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:white;
+
+    font-weight:700;
+
+}
