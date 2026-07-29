@@ -1,0 +1,40 @@
+
+{
+    "version": "9.9.9",
+    "title": "Initial Release",
+    "subtitle": "Official release of the plugin, with support for 2026.1 [1.21.8]!",
+    "date": "2026-07-29",
+
+    "new_blocks": [
+        {
+            "category": "Block",
+            "name": "",
+            "description": ""
+        }
+
+
+        
+    ],
+
+    "new_variables": [
+        {
+            "name": "",
+            "description": ""
+        }
+    ],
+
+    "new_triggers": [
+
+    ],
+
+    "new_versions": [
+        "2025.3 [1.21.1]"
+    ],
+
+    "changes": [
+    ],
+
+    "fixes": [
+        ""
+    ]
+}

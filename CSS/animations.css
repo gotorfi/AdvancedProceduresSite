@@ -1,0 +1,298 @@
+/* Visibility */
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Fade */
+
+.fade-in {
+    animation: fadeIn .8s ease forwards;
+}
+
+.fade-out {
+    animation: fadeOut .8s ease forwards;
+}
+
+/* Slide */
+
+.slide-up {
+    animation: slideUp .8s ease forwards;
+}
+
+.slide-down {
+    animation: slideDown .8s ease forwards;
+}
+
+.slide-left {
+    animation: slideLeft .8s ease forwards;
+}
+
+.slide-right {
+    animation: slideRight .8s ease forwards;
+}
+
+/* Zoom */
+
+.zoom-in {
+    animation: zoomIn .6s ease forwards;
+}
+
+.zoom-out {
+    animation: zoomOut .6s ease forwards;
+}
+
+/* Rotate */
+
+.rotate-in {
+    animation: rotateIn .8s ease forwards;
+}
+
+.rotate-out {
+    animation: rotateOut .8s ease forwards;
+}
+
+/* Blur */
+
+.blur-in {
+    animation: blurIn .8s ease forwards;
+}
+
+.blur-out {
+    animation: blurOut .8s ease forwards;
+}
+
+/* Float */
+
+.float {
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Pulse */
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Bounce */
+
+.bounce {
+    animation: bounce 1.2s infinite;
+}
+
+/* Speeds */
+
+.instant {
+    animation-duration: 0s;
+}
+
+.fast {
+    animation-duration: .3s;
+}
+
+.normal {
+    animation-duration: .8s;
+}
+
+.slow {
+    animation-duration: 1.5s;
+}
+
+.xslow {
+    animation-duration: 2.5s;
+}
+
+/* Delays */
+
+.delay-1 {
+    animation-delay: .2s;
+}
+
+.delay-2 {
+    animation-delay: .4s;
+}
+
+.delay-3 {
+    animation-delay: .6s;
+}
+
+.delay-4 {
+    animation-delay: .8s;
+}
+
+.delay-5 {
+    animation-delay: 1s;
+}
+
+/* Keyframes */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-15deg) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes rotateOut {
+    from {
+        opacity: 1;
+        transform: rotate(0);
+    }
+    to {
+        opacity: 0;
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(12px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes blurOut {
+    from {
+        opacity: 1;
+        filter: blur(0);
+    }
+    to {
+        opacity: 0;
+        filter: blur(12px);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-16px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}

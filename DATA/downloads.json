@@ -1,0 +1,17 @@
+[
+    {
+        "package": "DOWNLOADS/AdvancedProceduresPlugin_NeoForge_2025_3.zip",
+        "version": "2025.3",
+        "supports": ["1.21.1", "1.21.8"]
+    },
+    {
+        "package": "DOWNLOADS/AdvancedProceduresPlugin_NeoForge_2026_1.zip",
+        "version": "2026.1",
+        "supports": ["1.21.1", "1.21.8"]
+    },
+    {
+        "package": "DOWNLOADS/AdvancedProceduresPlugin_NeoForge_2026_2.zip",
+        "version": "2026.2",
+        "supports": ["1.21.1", "1.21.11"]
+    }
+]

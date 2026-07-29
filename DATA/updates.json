@@ -1,0 +1,428 @@
+[
+    {
+        "version": "1.2.1",
+        "title": "Hotfix 1.2.1",
+        "subtitle": "Fixed hard-coded java files that caused issues with the plugin.",
+        "date": "2026-07-29",
+
+        "new_blocks": [            
+        ],
+
+        "new_variables": [
+
+        ],
+
+        "new_triggers": [
+
+        ],
+
+        "new_versions": [
+
+        ],
+
+        "changes": [
+        ],
+
+        "fixes": [
+            "Java classes: Fixed hard-coded mod ID on java classes (used my test modid instead of your own modid)"
+        ]
+    },
+    {
+        "version": "1.2.0",
+        "title": "2025.3 Update",
+        "subtitle": "2025.3 support, new procedure blocks and bug fixes!",
+        "date": "2026-07-26",
+
+        "new_blocks": [
+            {
+                "category": "Event",
+                "name": "Spawn Custom Fireball with texture [ x ] speed [ x ] inaccuracy [ x ] size [ x ] destroy MODE [ x ] fire MODE [ x ] enable fire [ x ] use trail particle [ x ] use gravity [ x ] shooter [ x ]",
+                "description": "Spawns a custom fireball from an entity with the specified texture, speed, inaccuracy, explosion size, fire duration, fire visual toggle, trail particle, and gravity settings."
+            },
+            {
+                "category": "Event",
+                "name": "Spawn Custom Fireball from x [ x ] y [ x ] z [ x ] to x [ x ] y [ x ] z [ x ] with texture [ x ] speed [ x ] inaccuracy [ x ] size [ x ] destroy MODE [ x ] fire MODE [ x ] enable fire [ x ] use trail particle [ x ] use gravity [ x ] shooter [ x ]",
+                "description": "Spawns a custom fireball from an entity or target point to the specified target coordinates with the selected texture, speed, inaccuracy, explosion size, fire duration, fire visual toggle, trail particle, and gravity settings."
+            },
+            {
+                "category": "Event",
+                "name": "Spawn Custom Eye with texture [ x ] ambient particles [ x ] break particles [ x ] break chance (0-1) [ x ] chase structure [ x ]",
+                "description": "Spawns a custom Eye of Ender with custom textures and particles, and assigns its target direction/structure."
+            },
+            {
+                "category": "Player",
+                "name": "(Suggestion) Save [ x ] inventory: Include Hotbar [ x ] Main Inventory [ x ] Armor [ x ] Offhand [ x ] into list [ x ]",
+                "description": "Saves the specified entity's inventory slots into an InventoryArrayList variable."
+            },
+            {
+                "category": "Player",
+                "name": "(Suggestion) For each item in list [ x ] category [ x ] include empty [ x ] item: [ x ] slot: [ x ] count: [ x ] do [ x ]",
+                "description": "Iterates through all saved slots of an entity stored in an InventoryArrayList variable."
+            },
+            {
+                "category": "Block",
+                "name": "(Suggestion) Make [ x ] attempt to find structure [ x ] with speed [ x ]",
+                "description": "Forces the entity to pathfind to the specified structure and stops once reached. (Does not require a tick update)."
+            },
+            {
+                "category": "Entity",
+                "name": "(Suggestion) Make [ x ] semi-aquatic with swim speed [ x ] (Tick update required)",
+                "description": "Converts the target entity into a semi-aquatic/Drowned-type mob capable of living underwater. (Tick update required)."
+            }
+
+
+            
+        ],
+
+        "new_variables": [
+            {
+                "name": "InventoryArrayList",
+                "description": "Stores an entity's inventory, hotbar, armor, and/or offhand slots within a single variable"
+            }
+        ],
+
+        "new_triggers": [
+
+        ],
+
+        "new_versions": [
+            "2025.3 [1.21.1]",
+            "2025.3 [1.21.8]"
+        ],
+
+        "changes": [
+        ],
+
+        "fixes": [
+            "Pathfinding: Fixed the 'attempt to make a path to closest block' block so that the entity now attempts to reach the exact target block directly, rather than settling for an adjacent block.",
+            ""
+
+        ]
+    },
+    {
+        "version": "1.1.0",
+        "title": "Update 2026.2",
+        "subtitle": "2026.2 support, new procedure blocks, reworked block and bug fixes!",
+        "date": "2026-07-22",
+
+        "new_blocks": [
+            {
+                "category": "Block",
+                "name": "If Portal of type [ x ] meets requirements: MinWidth [ x ] MinHeight [ x ] MaxWidth [ x ] MaxHeight [ x ] and Block of type [ x ] with Blockstate (-1 to ignore) [ x ] use block at x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Checks if a custom portal meets the shape and size requirements."
+            },
+            {
+                "category": "Block",
+                "name": "Fill Portal of type [ x ] using Block of type [ x ] use block at x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Fills the frame opening of a custom portal with the specified block."
+            },
+            {
+                "category": "Player",
+                "name": "Get free slot number from [ x ] [ x ] return 999 if no slots available",
+                "description": "Returns the first empty slot number from the hotbar or inventory. Returns 999 if no empty slots are found."
+            },
+            {
+                "category": "Block",
+                "name": "Get highest/lowest block y-value for [ x ] at x: [ x ] y: [ x ] z: [ x ] start from y: [ x ] [ x ] return 999 if no result",
+                "description": "Checks the Y-coordinate of an open/air block at the specified location and returns its Y-level. Returns 999 if no suitable block is found within the specified range."
+            }
+
+
+            
+        ],
+
+        "new_variables": [
+
+        ],
+
+        "new_triggers": [
+
+        ],
+
+        "new_versions": [
+            "2026.1 [1.21.1]",
+            "2026.2 [1.21.1]",
+            "2026.2 [26.1.2]"
+        ],
+
+        "changes": [
+            {
+                "category": "Block",
+                "name": "(REWORK) Launch nearby blocks at x: [ x ] y: [ x ] z: [ x ] with radius [ x ] power [ x ] gravity [ x ]",
+                "description": "Creates a visual explosion by launching nearby blocks with physics. Gravity can be enabled or disabled. Now also includes a customizable option to ignore specific blocks."
+            }
+        ],
+
+        "fixes": [
+            "Fixed hardcoded instances that contained the plugin's test workspace mod ID. It now correctly uses each project's own mod ID.",
+            "Fixed a couple of issues where converting coordinates from an object type to a double type would cause certain parts of the procedure blocks to stop functioning."
+        ]
+    },
+    {
+        "version": "1.0.0",
+        "title": "Initial Release",
+        "subtitle": "Official release of the plugin, with support for 2026.1 [1.21.8]!",
+        "date": "2026-07-12",
+
+        "new_blocks": [
+            {
+                "category": "Block",
+                "name": "Attempt to make a path for [ x ] to locate the closest block [ x ] MODE [ x ]",
+                "description": "Forces the entity to ignore its current path and navigate to the nearest matching block within a 40-block search radius."
+            },
+            {
+                "category": "Block",
+                "name": "block [ x ] at x: [ x ] y: [ x ] z: [ x ] exists in the radius [ x ]",
+                "description": "Checks whether the specified block exists within the given radius around the position."
+            },
+            {
+                "category": "Block",
+                "name": "Get x of redstone signal at x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Returns the X coordinate of the first block providing a redstone signal to the selected block."
+            },
+            {
+                "category": "Block",
+                "name": "Get y of redstone signal at x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Returns the Y coordinate of the first block providing a redstone signal to the selected block."
+            },
+            {
+                "category": "Block",
+                "name": "Get z of redstone signal at x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Returns the Z coordinate of the first block providing a redstone signal to the selected block."
+            },
+            {
+                "category": "Block",
+                "name": "Launch nearby blocks at x: [ x ] y: [ x ] z: [ x ] with radius [ x ] power [ x ] gravity [ x ]",
+                "description": "Creates a visual explosion by launching nearby blocks with physics. Gravity can be enabled or disabled."
+            },
+            {
+                "category": "Entity",
+                "name": "Set immunity of [ x ] to [ x ]",
+                "description": "Makes the entity immune to melee and projectile damage. Hits will only produce particles without dealing damage."
+            },
+            {
+                "category": "Entity",
+                "name": "[ x ] is walking",
+                "description": "Returns whether the entity is currently walking."
+            },
+            {
+                "category": "Entity",
+                "name": "[ x ] is standing still",
+                "description": "Returns whether the entity is currently standing still."
+            },
+            {
+                "category": "Entity",
+                "name": "Shoot projectile [ x ] from X: [ x ] Y: [ x ] Z: [ x ] towards entity [ x ] with speed [ x ] and inaccuracy [ x ]",
+                "description": "Shoots a projectile directly at the target entity without requiring manual trajectory calculations."
+            },
+            {
+                "category": "Entity",
+                "name": "Push entity [ x ] backwards with distance [ x ] and speed [ x ] enable sine movement [ x ]",
+                "description": "Pushes the entity backwards based on its facing direction. Supports smooth sine movement or linear movement."
+            },
+            {
+                "category": "Entity",
+                "name": "Bounce [ x ] [ x ] blocks with speed [ x ] in direction [ x ]",
+                "description": "Launches an entity in the chosen direction with a configurable bounce distance and speed."
+            },
+            {
+                "category": "Entity",
+                "name": "Change freeze AI state of [ x ] to [ x ]",
+                "description": "Enables or disables the entity's AI while keeping physics active. The entity can still fall or be pushed."
+            },
+            {
+                "category": "Entity",
+                "name": "Set the brainless state of [ x ] to [ x ] make stay in place [ x ]",
+                "description": "Turns the entity into a statue by completely disabling its AI. Optionally keeps it fixed in place."
+            },
+            {
+                "category": "Entity",
+                "name": "Set forced aggressive target of [ x ] to [ x ] with attack power [ x ] if cannot attack",
+                "description": "Forces any mob, including passive animals, to attack the selected target. Attack power is applied if the mob normally cannot attack."
+            },
+            {
+                "category": "Entity",
+                "name": "Clear current attack/block target of [ x ]",
+                "description": "Removes the entity's current attack target."
+            },
+            {
+                "category": "Entity",
+                "name": "[ x ] is aggressive towards an entity of type [ x ]",
+                "description": "Checks whether the entity is currently targeting a specific entity type."
+            },
+            {
+                "category": "Entity",
+                "name": "[ x ] is aggressive towards any entity",
+                "description": "Checks whether the entity currently has any attack target."
+            },
+            {
+                "category": "Entity",
+                "name": "Get vector of target the entity [ x ] is aggressive towards",
+                "description": "Returns the position vector of the entity's current attack target."
+            },
+            {
+                "category": "Entity",
+                "name": "Can [ x ] see target",
+                "description": "Checks whether the entity has line of sight to its current target."
+            },
+            {
+                "category": "Entity",
+                "name": "Set entity [ x ] force to look at target [ x ] state: [ x ]",
+                "description": "Forces an entity to continuously face another entity while enabled."
+            },
+            {
+                "category": "Entity",
+                "name": "Dash entity [ x ] with power [ x ] use head rotation [ x ]",
+                "description": "Launches the entity forward with the specified dash power. It can optionally follow the entity's head rotation."
+            },
+            {
+                "category": "Entity",
+                "name": "Spin entity [ x ] [ x ] degrees",
+                "description": "Rotates the entity by the specified number of degrees."
+            },
+            {
+                "category": "Entity",
+                "name": "Set entity [ x ] force to look at X: [ x ] Y: [ x ] Z: [ x ] state: [ x ]",
+                "description": "Forces an entity to continuously face the specified coordinates while enabled."
+            },
+            {
+                "category": "Entity",
+                "name": "Is [ x ] [ x ]",
+                "description": "Checks the current AI state of the entity, such as whether it is frozen or brainless."
+            },
+            {
+                "category": "Math",
+                "name": "convert [ x ] to int",
+                "description": "Converts a value into an integer."
+            },
+            {
+                "category": "Math",
+                "name": "convert [ x ] to float",
+                "description": "Converts a value into a floating-point number."
+            },
+            {
+                "category": "Math",
+                "name": "is [ x ] [ x ]",
+                "description": "Checks whether the number is odd or even."
+            },
+            {
+                "category": "Math",
+                "name": "get X of vector [ x ]",
+                "description": ""
+            },
+            {
+                "category": "Math",
+                "name": "get X of vector [ x ]",
+                "description": "Returns the X component of a vector."
+            },
+            {
+                "category": "Math",
+                "name": "get Y of vector [ x ]",
+                "description": "Returns the Y component of a vector."
+            },
+            {
+                "category": "Math",
+                "name": "get Z of vector [ x ]",
+                "description": "Returns the Z component of a vector."
+            },
+            {
+                "category": "Player",
+                "name": "Disable movement of [ x ] to [ x ]",
+                "description": "Freezes or unfreezes the selected player's movement."
+            },
+            {
+                "category": "Player",
+                "name": "Push new [ x ] to [ x ] at x: [ x ] y: [ x ] z: [ x ] with fade speed [ x ] s, hold time [ x ] s",
+                "description": "Displays a custom title, subtitle, or action bar to the selected players. The title can be positioned and configured with custom fade and display durations."
+            },
+            {
+                "category": "Event",
+                "name": "Grant advancement [ x ] to player [ x ]",
+                "description": "Grants the selected advancement to the specified player."
+            },
+            {
+                "category": "Event",
+                "name": "Grant advancement [ x ] to all server players",
+                "description": "Grants the selected advancement to every player on the server."
+            },
+            {
+                "category": "Event",
+                "name": "Remove advancement [ x ] from player [ x ] if advancement has been granted",
+                "description": "Removes the selected advancement from the player if they have already unlocked it."
+            },
+            {
+                "category": "Event",
+                "name": "Remove advancement [ x ] from all server players if advancement has been granted",
+                "description": "Removes the selected advancement from every player who has unlocked it."
+            },
+            {
+                "category": "Event",
+                "name": "player [ x ] has advancement [ x ]",
+                "description": "Checks whether the specified player has unlocked the selected advancement."
+            },
+            {
+                "category": "Event",
+                "name": "all server players have advancement [ x ]",
+                "description": "Returns true if every player on the server has unlocked the selected advancement."
+            },
+            {
+                "category": "Item",
+                "name": "set enchanted item [ x ] in main hand of entity [ x ] (biped structure)",
+                "description": "Equips an enchanted item in the entity's main hand. The entity must use a standard biped Java model."
+            },
+            {
+                "category": "Item",
+                "name": "set enchanted item [ x ] in off hand of entity [ x ] (biped structure)",
+                "description": "Equips an enchanted item in the entity's off hand. The entity must use a standard biped Java model."
+            },
+            {
+                "category": "Item",
+                "name": "spawn enchanted item [ x ] x: [ x ] y: [ x ] z: [ x ] amount [ x ] pickup-delay [ x ] despawn [ x ]",
+                "description": "Spawns an enchanted item stack with custom amount, pickup delay, and despawn settings."
+            },
+            {
+                "category": "Item",
+                "name": "add enchanted item [ x ] inside entity [ x ] inventory",
+                "description": "Adds an enchanted item directly into the selected entity's inventory."
+            },
+            {
+                "category": "Component",
+                "name": "Advancement [ x ]",
+                "description": "Advancement block with advancement list."
+            },
+            {
+                "category": "Component",
+                "name": "TextStyle [ x ] [ x ]",
+                "description": "Applies a text style, such as bold, italic, or other formatting, to a title component. Multiple styles can be combined."
+            },
+            {
+                "category": "Component",
+                "name": "Color [ x ] [ x ]",
+                "description": "Applies a text color to a title component. Supports all available Minecraft text colors."
+            }
+
+
+            
+        ],
+
+        "new_variables": [
+
+        ],
+
+        "new_triggers": [
+
+        ],
+
+        "new_versions": [
+            "2026.1 [1.21.8]"
+        ],
+
+        "changes": [
+
+        ],
+
+        "fixes": [
+
+        ]
+    }
+]

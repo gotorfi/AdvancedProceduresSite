@@ -1,0 +1,96 @@
+.procedure-card{
+    background:#222;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:25px;
+    border:1px solid #333;
+}
+
+.procedure-badge{
+    display:inline-block;
+    margin-bottom:12px;
+    font-size:12px;
+    font-weight:700;
+    color:#ffffffaa;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.procedure-block{
+    position:relative;
+    border-radius:10px;
+    padding:18px;
+    box-shadow:
+        inset 0 3px rgba(255,255,255,.18),
+        inset 0 -4px rgba(0,0,0,.25);
+}
+
+.procedure-block::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:40px;
+    width:46px;
+    height:8px;
+    background:inherit;
+    border-radius:5px 5px 0 0;
+}
+
+.procedure-block::after{
+    content:"";
+    position:absolute;
+    bottom:-8px;
+    left:40px;
+    width:46px;
+    height:8px;
+    background:#1c1c1c;
+    border-radius:0 0 5px 5px;
+}
+
+.procedure-content{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    line-height:1.7;
+}
+
+.procedure-input{
+    width:48px;
+    height:22px;
+    border-radius:6px;
+    background:#ffffff;
+    display:inline-block;
+    box-shadow:
+        inset 0 2px rgba(0,0,0,.18);
+}
+
+.procedure-description{
+    margin-top:18px;
+    color:#ddd;
+    line-height:1.6;
+}
+
+.procedure-footer{
+    margin-top:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#aaa;
+    font-size:14px;
+}
+
+.procedure-tag{
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.rework{
+    background:#d67d1d;
+    color:white;
+}
