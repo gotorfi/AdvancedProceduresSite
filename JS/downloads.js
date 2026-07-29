@@ -40,7 +40,7 @@ function createCard(download) {
             <div>
 
                 <div class="download-version">
-                    MCreator ${download.version}
+                    MCreator Neoforge ${download.version}
                 </div>
 
                 <div class="download-support">
