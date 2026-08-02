@@ -19,6 +19,10 @@ async function loadProcedures() {
 
     for (const update of updates) {
 
+        // =====================================================
+        // NEW BLOCKS
+        // =====================================================
+
         const blocks = update.new_blocks || [];
 
         for (const block of blocks) {
@@ -37,14 +41,17 @@ async function loadProcedures() {
             if (rework)
                 name = name.replace("(REWORK)", "").trim();
 
-            const procedure = {
+            procedures.set(name, {
                 ...block,
                 name,
                 suggestion
-            };
+            });
 
-            procedures.set(name, procedure);
         }
+
+        // =====================================================
+        // REWORKS
+        // =====================================================
 
         const changes = update.changes || [];
 
@@ -56,16 +63,22 @@ async function loadProcedures() {
             if (block.category !== category)
                 continue;
 
-            let name = block.name.trim();
+            let newName = block.name.trim();
 
-            if (!name.startsWith("(REWORK)"))
+            if (!newName.startsWith("(REWORK)"))
                 continue;
 
-            name = name.replace("(REWORK)", "").trim();
+            newName = newName.replace("(REWORK)", "").trim();
 
-            procedures.set(name, {
+            const oldName = block.old_name
+                ? block.old_name.trim()
+                : newName;
+
+            procedures.delete(oldName);
+
+            procedures.set(newName, {
                 ...block,
-                name,
+                name: newName,
                 suggestion: false
             });
 

@@ -1,2 +1,2 @@
-# AdvancedProceudresSite
-This is hte site for advanced procedures
+# AdvancedProceduresSite
+This is the site for advanced procedures

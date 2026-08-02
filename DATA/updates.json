@@ -1,4 +1,159 @@
 [
+    
+    {
+        "version": "1.3.0",
+        "title": "World Star",
+        "subtitle": "1.3.0 is here, the Largest Update! 3 new MCreator versions 20 new blocks, new triggers, and more!",
+        "date": "2026-08-02",
+
+        "new_blocks": [
+            {
+                "category": "Math",
+                "name": "[ x ] [ ++/-- ]",
+                "description": "Increases/decreases by one."
+            },
+            {
+                "category": "Math",
+                "name": "[ x ] [ +=/-= ] [ x ]",
+                "description": "Increases/decreases by the amount of x."
+            },
+            {
+                "category": "Math",
+                "name": "Distance between x1: [ x ] y1: [ x ] z1: [ x ] and x2: [ x ] y2: [ x ] z2: [ x ]",
+                "description": "Returns the distance between two coordinates."
+            },
+            {
+                "category": "Component",
+                "name": "Every [ x ] call do { }",
+                "description": "Executes the code inside after every x ticks. Works on the server-side only."
+            },
+            {
+                "category": "Block",
+                "name": "Cause [ x ] damage to the block at x: [ x ] y: [ x ] z: [ x ] drop [ true/false ] recover after [ x ] seconds",
+                "description": "Causes visual damage to the target block. You can also specify whether it drops items and how long it takes to revert back to normal."
+            },
+            {
+                "category": "Block",
+                "name": "Modify block at x: [ x ] y: [ x ] z: [ x ] with teleport ability: [ true/false ] trigger offset Y: [ x ] sound: [ x ] particle: [ x ] seconds: [ x ] to dimension: [ x ] x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Adds a teleport ability to the target block. You can choose a Y-axis offset where the player must stand to activate the teleportation. The teleport works both within the same dimension and across different dimensions. WARNING! Carelessly adding blocks with teleport abilities can leave them behind in the world because they are not visible. Make sure you know exactly where you place them."
+            },
+            {
+                "category": "Block",
+                "name": "Get [ strongest/weakest ] redstone signal power at x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Returns the strongest/weakest redstone signal that the target block receives."
+            },
+            {
+                "category": "Entity",
+                "name": "Override movement of [ entity ] and move towards x: [ x ] y: [ x ] z: [ x ] with fly ability [ true/false ] mode [ LINEAR / SINE IN / SINE OUT / SINE IN OUT ] and speed [ x ]",
+                "description": "Forces the entity to move/fly to the target coordinates using the desired interpolation style and speed."
+            },
+            {
+                "category": "Entity",
+                "name": "Get [ PROFESSION / LEVEL_NUM / LEVEL_NAME ] of villager [ entity ]",
+                "description": "Returns the target villager's profession, level name, or level number as a string. Returns empty if the entity is not a villager."
+            },
+            {
+                "category": "Entity",
+                "name": "Push target entity [ entity ] in direction source entity [ source ] is facing with power [ x ]",
+                "description": "Pushes the target entity with the desired power in the direction that the source entity is facing."
+            },
+            {
+                "category": "Entity",
+                "name": "[ Pull/Push ] all entities in radius [ x ] target entity [ entity ] with power [ x ]",
+                "description": "Pushes/pulls all entities within the desired radius toward the target entity with the desired power."
+            },
+            {
+                "category": "Entity",
+                "name": "[ Pull/Push ] all entities in radius [ x ] position x: [ x ] y: [ x ] z: [ x ] with power [ x ]",
+                "description": "Pushes/pulls all entities within the desired radius toward the target coordinate with the desired power."
+            },
+            {
+                "category": "Entity",
+                "name": "Swap position between [ entity ] and [ source ]",
+                "description": "Swaps the positions of the target entity and the source entity."
+            },
+            {
+                "category": "Entity",
+                "name": "spin entity [ entity ] around position x [ x ] y [ x ] z [ x ] speed [ x ] radius [ x ] angle [ x ] dynamic rotation speed [ x ] stop condition [ NONE / TAKES DAMAGE / TARGET CHANGES ]",
+                "description": "Spins the entity around the target block using the desired parameters and chosen stop condition."
+            },
+            {
+                "category": "Event",
+                "name": "Raycast gives entity [ x ] in range [ x ] towards direction of [ entity ]",
+                "description": "Returns true/false depending on whether the desired entity is in the line of sight of the look-target entity."
+            },
+            {
+                "category": "Event",
+                "name": "Raycast gives block [ block ] in range [ x ] towards direction of [ entity ]",
+                "description": "Returns true/false depending on whether the desired block is in the line of sight of the look-target entity."
+            },
+            {
+                "category": "Item",
+                "name": "Create structure map for structure [ x ] in slot [ x ] of [ entity ]",
+                "description": "Creates a custom map in the entity's inventory, provided the entity has an inventory."
+            },
+            {
+                "category": "Item",
+                "name": "Set structure map with structure [ x ] in main hand of [ entity ]",
+                "description": "Creates a custom map in the entity's main hand, if they have one."
+            },
+
+            {
+                "category": "Item",
+                "name": "Set structure map with structure [ x ] in off hand of [ entity ]",
+                "description": "Creates a custom map in the entity's off hand (left hand), if they have one."
+            },
+            {
+                "category": "Item",
+                "name": "Set structure map with structure [ x ] in slot [ x ] of block at x: [ x ] y: [ x ] z: [ x ] (if has inventory)",
+                "description": "Creates a custom map in the block's inventory, provided the block has an inventory."
+            }
+
+
+            
+        ],
+
+        "new_variables": [
+            
+        ],
+
+        "new_triggers": [
+            {
+                "name": "Projectile impacts (hits block or entity)",
+                "description": "Activates when a projectile hits something. Returns [event/target entity] if it hits an entity, otherwise it returns only the coordinates of the impact."
+            },
+            {
+                "name": "Entity teleports using Ender Pearl",
+                "description": "Activates when an entity uses an ender pearl. (Also activates when changing dimensions, as Minecraft counts that as an ender pearl teleport)."
+            }
+        ],
+
+        "new_versions": [
+            "2025.2 [1.21.1]",
+            "2025.2 [1.21.4]",
+            "2025.1 [1.21.1]",
+            "2025.1 [1.21.4]",
+            "2024.4 [1.21.1]"
+        ],
+
+        "changes": [
+            {
+                "category": "Block",
+                "old_name": "Clear current attack/block target of [ x ]",
+                "name": "(REWORK) Cancel all custom tasks of [ x ]",
+                "description": "Creates a visual explosion by launching nearby blocks with physics. Gravity can be enabled or disabled. Now also includes a customizable option to ignore specific blocks."
+            },
+            {
+                "category": "Block",
+                "name": "(REWORK) Attempt to make a path for [ x ] to locate the closest block [ x ] MODE [ x ]",
+                "description": "Forces the entity to ignore its current path and navigate to the nearest matching block within a 40-block search radius. Now this only requires to be called once."
+            }
+        ],
+
+        "fixes": [
+            "Procedure: Fixed an issue where the 'Attempt to make a path for [ x ] to locate the closest block [ x ] MODE [ x ]' block was not working correctly."
+        ]
+    },
     {
         "version": "1.2.1",
         "title": "Hotfix 1.2.1",
