@@ -9,12 +9,12 @@
         "new_blocks": [
             {
                 "category": "Math",
-                "name": "[ x ] [ ++/-- ]",
+                "name": "(Suggestion) [ x ] [ ++/-- ]",
                 "description": "Increases/decreases by one."
             },
             {
                 "category": "Math",
-                "name": "[ x ] [ +=/-= ] [ x ]",
+                "name": "(Suggestion) [ x ] [ +=/-= ] [ x ]",
                 "description": "Increases/decreases by the amount of x."
             },
             {
@@ -49,7 +49,7 @@
             },
             {
                 "category": "Entity",
-                "name": "Get [ PROFESSION / LEVEL_NUM / LEVEL_NAME ] of villager [ entity ]",
+                "name": "(Suggestion) Get [ PROFESSION / LEVEL_NUM / LEVEL_NAME ] of villager [ entity ]",
                 "description": "Returns the target villager's profession, level name, or level number as a string. Returns empty if the entity is not a villager."
             },
             {
