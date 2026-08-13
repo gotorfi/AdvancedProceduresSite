@@ -24,7 +24,7 @@
 
 <header class="hero">
 
-<img src="IMG/header.png" alt="Header">
+    <img src="IMG/header.png" alt="Header">
 
 </header>
 
@@ -32,29 +32,29 @@
 
 <nav class="navbar">
 
-<div class="navbar-logo">
-<a href="index.html">GotorFI</a>
-</div>
+    <div class="navbar-logo">
+        <a href="index.html">GotorFI</a>
+    </div>
 
 
-<button class="navbar-toggle">
-☰
-</button>
+    <button class="navbar-toggle">
+        ☰
+    </button>
 
 
-<ul class="navbar-links">
+    <ul class="navbar-links">
 
-<li><a href="index.html">Home</a></li>
-<li><a href="block.html">Blocks</a></li>
-<li><a href="entity.html">Entities</a></li>
-<li><a href="component.html">Components</a></li>
-<li><a href="player.html">Players</a></li>
-<li><a href="event.html">Events</a></li>
-<li><a href="math.html">Math</a></li>
-<li><a href="misc.html">Misc</a></li>
-<li><a href="downloads.html">Downloads</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="block.html">Blocks</a></li>
+        <li><a href="entity.html">Entities</a></li>
+        <li><a href="component.html">Components</a></li>
+        <li><a href="player.html">Players</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="math.html">Math</a></li>
+        <li><a href="misc.html">Misc</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
 
-</ul>
+    </ul>
 
 </nav>
 
@@ -66,138 +66,155 @@
 <section class="section">
 
 
-<span class="section-label">
-FEEDBACK
-</span>
+    <span class="section-label">
+        FEEDBACK
+    </span>
 
 
-<h2>Send Feedback</h2>
+    <h2>Send Feedback</h2>
 
 
-<p>
-Report bugs, suggest new procedure blocks, or request improvements.
-</p>
+    <p>
+        Report bugs, suggest new procedure blocks, or request improvements.
+    </p>
 
 
-<br>
+    <br>
 
 
 
-<form id="feedback-form" class="feedback-form">
+    <form id="feedback-form" class="feedback-form">
 
 
-<label>
-Choose a Category
-</label>
+        <label>
+            Choose a Category
+        </label>
 
 
-<select id="category" required>
+        <select id="category" required>
 
-<option value="">
-Select category
-</option>
+            <option value="">
+                Select category
+            </option>
 
-<option value="Bug report">
-Bug report
-</option>
+            <option value="Bug report">
+                Bug report
+            </option>
 
-<option value="Feedback">
-Feedback
-</option>
+            <option value="Feedback">
+                Feedback
+            </option>
 
-<option value="New Procedure Block">
-New Procedure Block
-</option>
+            <option value="New Procedure Block">
+                New Procedure Block
+            </option>
 
-<option value="Change existing Procedure Block">
-Change existing Procedure Block
-</option>
+            <option value="Change existing Procedure Block">
+                Change existing Procedure Block
+            </option>
 
-</select>
+        </select>
 
 
 
-<div id="bug-fields" style="display:none;">
+        <div id="bug-fields" style="display:none;">
 
 
-<label>
-Please explain your bug report.
-</label>
+            <label>
+                Please explain your bug report.
+            </label>
 
-<textarea id="bug"></textarea>
+            <textarea id="bug"></textarea>
 
 
 
-<label>
-Add screenshots or crash report files
-</label>
+            <label>
+                Add screenshots or crash report files
+            </label>
 
-<input 
-type="text"
-id="screenshots"
-placeholder="Paste links here">
+            <input
+                type="text"
+                id="screenshots"
+                placeholder="Paste links here"
+            >
 
 
 
-<label>
-Choose MCreator version
-</label>
+            <label>
+                Choose MCreator and Minecraft version
+            </label>
 
-<input
-type="text"
-id="version"
-placeholder="Example: 2026.2">
 
+            <div class="version-selector">
 
-</div>
+                <select id="version-select">
 
+                    <option value="">
+                        Select a version
+                    </option>
 
+                </select>
 
+            </div>
 
-<div id="normal-fields" style="display:none;">
 
+            <div
+                id="selected-versions"
+                class="selected-versions">
+            </div>
 
-<label>
-Explain here
-</label>
 
+        </div>
 
-<textarea id="message"></textarea>
 
 
-</div>
 
+        <div id="normal-fields" style="display:none;">
 
 
+            <label>
+                Explain here
+            </label>
 
-<label>
-Do you want me to send updates to your email when new updates arrive or when bugs are fixed?
-</label>
 
+            <textarea id="message"></textarea>
 
-<input
-type="email"
-id="email"
-placeholder="Email (optional)">
 
+        </div>
 
 
-<br><br>
 
 
-<button class="button-outline" type="submit">
+        <label>
+            Do you want me to send updates to your email when new updates arrive or when bugs are fixed?
+        </label>
 
-Send Feedback
 
-</button>
+        <input
+            type="email"
+            id="email"
+            placeholder="Email (optional)"
+        >
 
 
 
-</form>
+        <br><br>
 
 
+        <button
+            class="button-outline"
+            type="submit"
+        >
+            Send Feedback
+        </button>
 
-<p id="status"></p>
+
+
+    </form>
+
+
+
+    <p id="status"></p>
 
 
 </section>
@@ -206,58 +223,186 @@ Send Feedback
 </main>
 
 
+
 <footer class="site-footer">
 
-<div class="footer-avatar">
 
-<img src="IMG/profile.png" alt="GotorFI">
+    <div class="footer-avatar">
 
-</div>
+        <img
+            src="IMG/profile.png"
+            alt="GotorFI"
+        >
 
-
-<div class="footer-info">
-
-<h3>Advanced Procedures</h3>
-
-<p>
-Advanced Procedures plugin created by GotorFI
-and made for MCreator created by Pylo.
-</p>
+    </div>
 
 
-<p>
-© 2026 GotorFI. All rights reserved.
-</p>
+    <div class="footer-info">
+
+        <h3>
+            Advanced Procedures
+        </h3>
+
+        <p>
+            Advanced Procedures plugin created by GotorFI
+            and made for MCreator created by Pylo.
+        </p>
 
 
-</div>
+        <p>
+            © 2026 GotorFI. All rights reserved.
+        </p>
+
+    </div>
 
 
-<div class="footer-links">
+    <div class="footer-links">
 
-<a href="https://mcreator.net/" target="_blank">
-MCreator Website
-</a>
-
-
-<a href="feedback.html" target="_blank">
-Feedback Form
-</a>
-
-
-</div>
+        <a
+            href="https://mcreator.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            MCreator Website
+        </a>
 
 
-<div class="footer-logos">
+        <a href="feedback.html">
+            Feedback Form
+        </a>
 
-<img src="IMG/mcreator.png" alt="MCreator">
+    </div>
 
-<img src="IMG/icon.png" alt="Advanced Procedures">
 
-</div>
+    <div class="footer-logos">
+
+        <img
+            src="IMG/mcreator.png"
+            alt="MCreator"
+        >
+
+        <img
+            src="IMG/icon.png"
+            alt="Advanced Procedures"
+        >
+
+    </div>
 
 
 </footer>
+
+
+
+
+
+<!-- ========================================================= -->
+<!-- EMAIL WARNING MODAL -->
+<!-- ========================================================= -->
+
+<div
+    id="email-warning-modal"
+    class="email-warning-modal"
+>
+
+
+    <div class="email-warning-box">
+
+
+        <img
+            src="IMG/warning.png"
+            alt="Warning"
+            class="email-warning-image"
+        >
+
+
+        <h2>
+            Reminder!
+        </h2>
+
+
+        <div class="email-warning-text">
+
+
+            <p>
+                If you do not provide your email address, you will not
+                receive replies, updates, or other follow-up information.
+            </p>
+
+
+            <p>
+                Especially when submitting a bug report, I may not be able
+                to properly investigate or resolve the issue if I cannot
+                contact you for additional information.
+            </p>
+
+
+            <p>
+                Providing your email address is therefore recommended so
+                that I can contact you and let you know what happens with
+                your report or suggestion.
+            </p>
+
+
+            <p>
+                If you do not want to provide your email address and you
+                are submitting a bug report, please include as much
+                information as possible. Make sure to provide both your
+                MCreator version and Minecraft version.
+            </p>
+
+
+            <p>
+                For example:
+                <strong>
+                    2026.1 with Minecraft 1.21.8
+                </strong>
+                rather than only providing one of the versions.
+            </p>
+
+
+            <p>
+                You can cancel all update messages simply by replying
+                <strong>stop</strong> after receiving one. This way I let
+                people decide if they actually want updates or not.
+            </p>
+
+
+        </div>
+
+
+        <p class="email-warning-question">
+            Are you sure you want to submit your feedback without an email address?
+        </p>
+
+
+        <div class="email-warning-buttons">
+
+
+            <button
+                type="button"
+                id="email-warning-yes"
+                class="button-outline"
+            >
+                Yes, send anyway
+            </button>
+
+
+            <button
+                type="button"
+                id="email-warning-no"
+                class="button-outline"
+            >
+                No, go back
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
 
 
 
