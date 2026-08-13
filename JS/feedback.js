@@ -1,7 +1,7 @@
 "use strict";
 
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkWmz4TBYGURdPsWDVgBkJK1wwSSizmjqOnbRF45tdmndFrpU10o9JgrUTgvN6qF10/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9QPtxtXAVZiAZNq5U8uXzS6Mu5T1rjeSDUYrFfooBgdgC2cfiUMPNc-nph7DYhRj-4w/exec";
 
 
 const category = document.getElementById("category");
