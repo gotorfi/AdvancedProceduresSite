@@ -148,3 +148,51 @@ code {
 .full-width {
     width: 100%;
 }
+
+
+
+.star-rating {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0 4px;
+}
+
+.rating-star {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 42px;
+    line-height: 1;
+    cursor: pointer;
+    color: #4b5563;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.rating-star:hover {
+    transform: scale(1.12);
+    color: #f5c542;
+}
+
+.rating-star.active {
+    color: #f5c542;
+}
+
+.rating-status {
+    margin-top: 6px;
+    margin-bottom: 20px;
+    color: #7492a1;
+}
+
+.feedback-character-counter {
+    text-align: right;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    color: #7492a1;
+    font-size: 13px;
+}
+
+.ticket-feedback-section {
+    max-width: 760px;
+}

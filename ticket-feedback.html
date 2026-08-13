@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ticket Feedback</title>
+
+<link rel="icon" type="image/png" href="IMG/icon.png">
+
+<link rel="stylesheet" href="CSS/variables.css">
+<link rel="stylesheet" href="CSS/layout.css">
+<link rel="stylesheet" href="CSS/components.css">
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/responsive.css">
+
+</head>
+
+
+<body>
+
+
+<header class="hero">
+
+    <img src="IMG/header.png" alt="Header">
+
+</header>
+
+
+
+<nav class="navbar">
+
+    <div class="navbar-logo">
+        <a href="index.html">GotorFI</a>
+    </div>
+
+
+    <button class="navbar-toggle">
+        ☰
+    </button>
+
+
+    <ul class="navbar-links">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="block.html">Blocks</a></li>
+        <li><a href="entity.html">Entities</a></li>
+        <li><a href="component.html">Components</a></li>
+        <li><a href="player.html">Players</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="math.html">Math</a></li>
+        <li><a href="misc.html">Misc</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+
+    </ul>
+
+</nav>
+
+
+
+<main>
+
+<section class="section ticket-feedback-section">
+
+    <span class="section-label">
+        TICKET FEEDBACK
+    </span>
+
+
+    <h2>How did this ticket go?</h2>
+
+
+    <p>
+        Your feedback helps improve Advanced Procedures and the support experience.
+    </p>
+
+
+    <form id="ticket-feedback-form" class="feedback-form">
+
+
+        <label>
+            Your rating
+        </label>
+
+
+        <div
+            id="star-rating"
+            class="star-rating"
+            role="radiogroup"
+            aria-label="Ticket rating"
+        >
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="1"
+                aria-label="1 star"
+            >
+                ★
+            </button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="2"
+                aria-label="2 stars"
+            >
+                ★
+            </button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="3"
+                aria-label="3 stars"
+            >
+                ★
+            </button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="4"
+                aria-label="4 stars"
+            >
+                ★
+            </button>
+
+            <button
+                type="button"
+                class="rating-star"
+                data-rating="5"
+                aria-label="5 stars"
+            >
+                ★
+            </button>
+
+        </div>
+
+
+        <p
+            id="rating-status"
+            class="rating-status"
+        >
+            Select a rating
+        </p>
+
+
+
+        <label for="feedback">
+            Your feedback
+        </label>
+
+
+        <textarea
+            id="feedback"
+            name="feedback"
+            maxlength="200"
+            rows="5"
+            placeholder="Tell me how your ticket went..."
+            required
+        ></textarea>
+
+
+        <div class="feedback-character-counter">
+            <span id="feedback-counter">0</span>/200
+        </div>
+
+
+
+        <button
+            type="submit"
+            class="button-outline"
+        >
+            Send Feedback
+        </button>
+
+
+        <p id="ticket-feedback-status"></p>
+
+
+    </form>
+
+
+</section>
+
+</main>
+
+
+
+<footer class="site-footer">
+
+
+    <div class="footer-avatar">
+
+        <img
+            src="IMG/profile.png"
+            alt="GotorFI"
+        >
+
+    </div>
+
+
+    <div class="footer-info">
+
+        <h3>
+            Advanced Procedures
+        </h3>
+
+        <p>
+            Advanced Procedures plugin created by GotorFI
+            and made for MCreator created by Pylo.
+        </p>
+
+        <p>
+            © 2026 GotorFI. All rights reserved.
+        </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a
+            href="https://mcreator.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            MCreator Website
+        </a>
+
+
+        <a href="feedback.html">
+            Feedback Form
+        </a>
+
+    </div>
+
+
+    <div class="footer-logos">
+
+        <img
+            src="IMG/mcreator.png"
+            alt="MCreator"
+        >
+
+        <img
+            src="IMG/icon.png"
+            alt="Advanced Procedures"
+        >
+
+    </div>
+
+
+</footer>
+
+
+
+<script src="JS/navbar.js"></script>
+<script src="JS/ticket-feedback.js"></script>
+
+
+</body>
+
+</html>
