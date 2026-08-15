@@ -10,15 +10,29 @@
     into a Blockly/MCreator style block.
 */
 
+
+
 const BLOCK_COLORS = {
 
     Block: "#ad9d4b",
     Entity: "#4a57a8",
-    Component: "#913d3d",
+    Component: "#574e66",
     Player: "#0f868a",
     Event: "#503885",
     Item: "#8a0f42",
     Math: "#2f496b"
+
+};
+
+const DATA_BLOCK_COLORS = {
+
+    Block: "#7a6026",
+    Entity: "#202d81",
+    Component: "#212731",
+    Player: "#08484b",
+    Event: "#2d1b53",
+    Item: "#58092a",
+    Math: "#102744"
 
 };
 

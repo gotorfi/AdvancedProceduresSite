@@ -1,7 +1,7 @@
 "use strict";
 
 const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyKxkDyaE8aF-4KSF9d7HZZ1M-jilI1Dwi0F94SCdKJ58RkW9bl-QYZSN1cY_2Dkndo2A/exec";
+    "https://script.google.com/macros/s/AKfycbxIjPHSgCSAoxB9uo7V0MG8fy1Q8iS97RXkmFdABa3HsLVL3znZQ-T8GoMa_luhEZgM_g/exec";
 
 const form =
     document.getElementById("ticket-feedback-form");

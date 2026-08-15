@@ -4,105 +4,278 @@ const container = document.getElementById("procedures-container");
 
 document.addEventListener("DOMContentLoaded", loadProcedures);
 
+
+// =====================================================
+// COLORS
+// =====================================================
+
+const BLOCK_COLORS = {
+
+    Block: "#ad9d4b",
+    Entity: "#4a57a8",
+    Component: "#574e66",
+    Player: "#0f868a",
+    Event: "#503885",
+    Item: "#8a0f42",
+    Math: "#2f496b"
+
+};
+
+const DATA_BLOCK_COLORS = {
+
+    Block: "#7a6026",
+    Entity: "#202d81",
+    Component: "#212731",
+    Player: "#08484b",
+    Event: "#2d1b53",
+    Item: "#58092a",
+    Math: "#102744"
+
+};
+
+
+// =====================================================
+// LOAD PROCEDURES
+// =====================================================
+
 async function loadProcedures() {
 
-    if (!container) return;
+    if (!container)
+        return;
 
-    const category = document.body.dataset.category;
+    const category =
+        document.body.dataset.category;
 
-    const response = await fetch("DATA/updates.json");
-    const updates = await response.json();
+    const response =
+        await fetch("DATA/updates.json");
 
-    updates.sort((a, b) => new Date(a.date) - new Date(b.date));
+    const updates =
+        await response.json();
+
+    // Oldest -> newest
+    updates.sort((a, b) =>
+        new Date(a.date) - new Date(b.date)
+    );
 
     const procedures = new Map();
 
+
+    // =================================================
+    // PROCESS UPDATES
+    // =================================================
+
     for (const update of updates) {
 
-        // =====================================================
+        // ---------------------------------------------
         // NEW BLOCKS
-        // =====================================================
+        // ---------------------------------------------
 
-        const blocks = update.new_blocks || [];
-
-        for (const block of blocks) {
+        for (const block of update.new_blocks || []) {
 
             if (block.category !== category)
                 continue;
 
-            let name = block.name.trim();
+            let name =
+                String(block.name || "").trim();
 
-            const suggestion = name.startsWith("(Suggestion)");
-            const rework = name.startsWith("(REWORK)");
+            if (!name)
+                continue;
 
-            if (suggestion)
-                name = name.replace("(Suggestion)", "").trim();
+            let suggestion = false;
+            let reworked = false;
 
-            if (rework)
-                name = name.replace("(REWORK)", "").trim();
 
-            procedures.set(name, {
+            if (name.startsWith("(Suggestion)")) {
+
+                suggestion = true;
+
+                name = name
+                    .replace("(Suggestion)", "")
+                    .trim();
+
+            }
+
+
+            if (name.startsWith("(REWORK)")) {
+
+                reworked = true;
+
+                name = name
+                    .replace("(REWORK)", "")
+                    .trim();
+
+            }
+
+
+            const normalizedBlock = {
+
                 ...block,
+
                 name,
-                suggestion
-            });
+
+                version: update.version,
+
+                suggestion,
+
+                reworked
+
+            };
+
+
+            normalizedBlock.dataBlock =
+                isDataBlock(normalizedBlock);
+
+
+            procedures.set(
+                name,
+                normalizedBlock
+            );
 
         }
 
-        // =====================================================
+
+        // ---------------------------------------------
         // REWORKS
-        // =====================================================
+        // ---------------------------------------------
 
-        const changes = update.changes || [];
+        for (const block of update.changes || []) {
 
-        for (const block of changes) {
-
-            if (typeof block !== "object")
+            if (
+                typeof block !== "object" ||
+                block === null
+            )
                 continue;
 
             if (block.category !== category)
                 continue;
 
-            let newName = block.name.trim();
+            let newName =
+                String(block.name || "").trim();
+
 
             if (!newName.startsWith("(REWORK)"))
                 continue;
 
-            newName = newName.replace("(REWORK)", "").trim();
 
-            const oldName = block.old_name
-                ? block.old_name.trim()
-                : newName;
+            newName =
+                newName
+                    .replace("(REWORK)", "")
+                    .trim();
+
+
+            const oldName =
+                block.old_name
+                    ? String(block.old_name).trim()
+                    : newName;
+
 
             procedures.delete(oldName);
 
-            procedures.set(newName, {
+
+            const normalizedBlock = {
+
                 ...block,
+
                 name: newName,
-                suggestion: false
-            });
+
+                version: update.version,
+
+                suggestion: false,
+
+                reworked: true
+
+            };
+
+
+            normalizedBlock.dataBlock =
+                isDataBlock(normalizedBlock);
+
+
+            procedures.set(
+                newName,
+                normalizedBlock
+            );
 
         }
 
     }
 
+
+    // =================================================
+    // RENDER
+    // =================================================
+
     [...procedures.values()]
-        .sort((a, b) => a.name.localeCompare(b.name))
+        .sort((a, b) =>
+            a.name.localeCompare(b.name)
+        )
         .forEach(createCard);
 
 }
 
+
+// =====================================================
+// CREATE PROCEDURE CARD
+// =====================================================
+
 function createCard(block) {
 
-    const card = document.createElement("div");
+    const dataBlock =
+        block.dataBlock === true ||
+        isDataBlock(block);
+
+
+    // =================================================
+    // GET CORRECT COLOR
+    // =================================================
+
+    const colors =
+        dataBlock
+            ? DATA_BLOCK_COLORS
+            : BLOCK_COLORS;
+
+
+    const blockColor =
+        colors[block.category] || "#666";
+
+
+    // =================================================
+    // CREATE CARD
+    // =================================================
+
+    const card =
+        document.createElement("div");
+
+
+    /*
+        IMPORTANT:
+
+        .procedure-card itself IS the MCreator block.
+
+        The CSS uses:
+
+            --color: var(--block-color);
+            background: var(--color);
+
+        Therefore the color MUST be assigned
+        directly to the card.
+    */
 
     card.className =
         `procedure-card category-${block.category.toLowerCase()}`;
 
-    const dataBlock = isDataBlock(block);
+
+    card.style.setProperty(
+        "--block-color",
+        blockColor
+    );
+
+
+    // =================================================
+    // CONTENT
+    // =================================================
 
     card.innerHTML = `
-        <div class="procedure-top-notch"></div>
 
         <div class="procedure-main">
 
@@ -120,45 +293,101 @@ function createCard(block) {
 
                 </div>
 
+
                 <div class="procedure-tags">
 
                     <span class="procedure-tag tag-category">
-                        ${block.category}
+                        ${escapeHtml(block.category)}
                     </span>
 
-                    <span class="procedure-tag ${dataBlock ? "tag-data" : "tag-action"}">
+
+                    <span class="procedure-tag ${
+                        dataBlock
+                            ? "tag-data"
+                            : "tag-action"
+                    }">
+
                         ${dataBlock ? "DATA" : "ACTION"}
+
                     </span>
 
-                    ${block.suggestion
-                        ? `<span class="procedure-tag tag-suggestion">Suggestion</span>`
-                        : ""}
+
+                    ${
+                        block.suggestion
+                            ? `
+                                <span class="procedure-tag tag-suggestion">
+                                    Suggestion
+                                </span>
+                              `
+                            : ""
+                    }
 
                 </div>
 
             </div>
 
+
             <div class="procedure-description">
-                ${escapeHtml(block.description || "")}
+
+                ${escapeHtml(
+                    block.description || ""
+                )}
+
+            </div>
+
+
+            <div class="procedure-footer">
+
+                <span>
+                    v${escapeHtml(
+                        block.version || ""
+                    )}
+                </span>
+
+
+                ${
+                    block.reworked
+                        ? `
+                            <span class="procedure-tag rework">
+                                REWORK
+                            </span>
+                          `
+                        : ""
+                }
+
             </div>
 
         </div>
 
-        <div class="procedure-bottom-notch"></div>
     `;
+
 
     container.appendChild(card);
 
 }
 
+
+// =====================================================
+// DATA / ACTION DETECTION
+// =====================================================
+
 function isDataBlock(block) {
 
-    // Components are almost always data blocks.
-    // Only these keywords indicate an action block.
+    if (!block || !block.name)
+        return false;
+
+
+    const text =
+        String(block.name)
+            .toLowerCase()
+            .trim();
+
+
+    // -------------------------------------------------
+    // COMPONENT
+    // -------------------------------------------------
 
     if (block.category === "Component") {
-
-        const text = block.name.toLowerCase();
 
         return !(
             text.includes(" do ") ||
@@ -169,9 +398,13 @@ function isDataBlock(block) {
 
     }
 
-    const text = block.name.toLowerCase();
+
+    // -------------------------------------------------
+    // DATA PREFIXES
+    // -------------------------------------------------
 
     const prefixes = [
+
         "is ",
         "can ",
         "get ",
@@ -183,20 +416,24 @@ function isDataBlock(block) {
         "all ",
         "convert ",
         "if "
+
     ];
 
-    for (const prefix of prefixes) {
-        if (text.startsWith(prefix))
-            return true;
-    }
 
-    return false;
+    return prefixes.some(prefix =>
+        text.startsWith(prefix)
+    );
 
 }
 
+
+// =====================================================
+// HTML ESCAPE
+// =====================================================
+
 function escapeHtml(text) {
 
-    return text
+    return String(text)
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
@@ -204,9 +441,14 @@ function escapeHtml(text) {
 
 }
 
-function getCategoryIcon(category){
 
-    switch(category){
+// =====================================================
+// CATEGORY ICON
+// =====================================================
+
+function getCategoryIcon(category) {
+
+    switch (category) {
 
         case "Block":
             return "📦";

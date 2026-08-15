@@ -16,10 +16,17 @@
     text-transform:uppercase;
 }
 
+/* =====================================================
+   PROCEDURE BLOCK
+   ===================================================== */
+
 .procedure-block{
     position:relative;
     border-radius:10px;
     padding:18px;
+
+    background:var(--procedure-block-color, #666) !important;
+
     box-shadow:
         inset 0 3px rgba(255,255,255,.18),
         inset 0 -4px rgba(0,0,0,.25);
@@ -32,7 +39,9 @@
     left:40px;
     width:46px;
     height:8px;
-    background:inherit;
+
+    background:var(--procedure-block-color, #666) !important;
+
     border-radius:5px 5px 0 0;
 }
 
@@ -43,7 +52,9 @@
     left:40px;
     width:46px;
     height:8px;
-    background:#1c1c1c;
+
+    background:var(--procedure-block-color, #666) !important;
+
     border-radius:0 0 5px 5px;
 }
 
@@ -64,6 +75,7 @@
     border-radius:6px;
     background:#ffffff;
     display:inline-block;
+
     box-shadow:
         inset 0 2px rgba(0,0,0,.18);
 }

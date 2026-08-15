@@ -2,12 +2,20 @@
 
 async function loadCatalog() {
 
-    const response = await fetch("DATA/updates.json");
-    const updates = await response.json();
+    const response =
+        await fetch("DATA/updates.json");
 
-    updates.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const updates =
+        await response.json();
+
+
+    updates.sort((a, b) =>
+        new Date(b.date) - new Date(a.date)
+    );
+
 
     const categories = {
+
         Block: new Map(),
         Entity: new Map(),
         Component: new Map(),
@@ -20,99 +28,195 @@ async function loadCatalog() {
 
         Variables: [],
         Triggers: []
+
     };
+
+
+    // =================================================
+    // UPDATES
+    // =================================================
 
     for (const update of updates) {
 
-        //----------------------------------
-        // New blocks
-        //----------------------------------
+        // ---------------------------------------------
+        // NEW BLOCKS
+        // ---------------------------------------------
 
         for (const block of update.new_blocks || []) {
 
-            let name = block.name;
+            let name =
+                String(block.name || "").trim();
+
+            if (!name)
+                continue;
+
+
             let suggestion = false;
 
-            if (name.startsWith("(Suggestion) ")) {
+
+            if (name.startsWith("(Suggestion)")) {
 
                 suggestion = true;
-                name = name.substring(13);
+
+                name = name
+                    .replace("(Suggestion)", "")
+                    .trim();
 
             }
 
-            const data = {
+
+            const normalizedBlock = {
+
                 ...block,
-                name,
-                version: update.version,
-                description: block.description,
-                reworked: false
+
+                name
+
             };
+
+
+            const data = {
+
+                ...normalizedBlock,
+
+                version: update.version,
+
+                description:
+                    block.description || "",
+
+                reworked: false,
+
+                suggestion,
+
+                dataBlock:
+                    isDataBlock(normalizedBlock)
+
+            };
+
 
             if (suggestion) {
 
-                categories.Suggestion.set(name, data);
+                categories.Suggestion.set(
+                    name,
+                    data
+                );
 
-            } else {
+            }
+            else {
 
                 if (!categories[block.category])
                     continue;
 
-                categories[block.category].set(name, data);
+
+                categories[block.category].set(
+                    name,
+                    data
+                );
 
             }
 
         }
 
-        //----------------------------------
-        // Reworks
-        //----------------------------------
+
+        // ---------------------------------------------
+        // REWORKS
+        // ---------------------------------------------
 
         for (const block of update.changes || []) {
 
-            if (!block.name.startsWith("(REWORK) "))
+            if (
+                typeof block !== "object" ||
+                block === null
+            )
                 continue;
 
-            const name = block.name.substring(9);
+
+            let name =
+                String(block.name || "").trim();
+
+
+            if (!name.startsWith("(REWORK)"))
+                continue;
+
+
+            name =
+                name
+                    .replace("(REWORK)", "")
+                    .trim();
+
+
+            const normalizedBlock = {
+
+                ...block,
+
+                name
+
+            };
+
 
             const data = {
-                ...block,
-                name,
+
+                ...normalizedBlock,
+
                 version: update.version,
-                description: block.description,
-                reworked: true
+
+                description:
+                    block.description || "",
+
+                reworked: true,
+
+                suggestion: false,
+
+                dataBlock:
+                    isDataBlock(normalizedBlock)
+
             };
+
 
             if (!categories[block.category])
                 continue;
 
-            categories[block.category].set(name, data);
+
+            categories[block.category].set(
+                name,
+                data
+            );
 
         }
 
-        //----------------------------------
-        // Variables
-        //----------------------------------
 
-        for (const variable of update.new_variables || []) {
+        // ---------------------------------------------
+        // VARIABLES
+        // ---------------------------------------------
+
+        for (
+            const variable
+            of update.new_variables || []
+        ) {
 
             categories.Variables.push({
 
                 ...variable,
+
                 version: update.version
 
             });
 
         }
 
-        //----------------------------------
-        // Triggers
-        //----------------------------------
 
-        for (const trigger of update.new_triggers || []) {
+        // ---------------------------------------------
+        // TRIGGERS
+        // ---------------------------------------------
+
+        for (
+            const trigger
+            of update.new_triggers || []
+        ) {
 
             categories.Triggers.push({
 
                 ...trigger,
+
                 version: update.version
 
             });
@@ -121,6 +225,61 @@ async function loadCatalog() {
 
     }
 
+
     return categories;
+
+}
+
+
+// =====================================================
+// DATA / ACTION
+// =====================================================
+
+function isDataBlock(block) {
+
+    if (!block || !block.name)
+        return false;
+
+
+    const text =
+        String(block.name)
+            .toLowerCase()
+            .trim();
+
+
+    // Component-specific rules
+
+    if (block.category === "Component") {
+
+        return !(
+            text.includes(" do ") ||
+            text.includes(" make ") ||
+            text.includes(" to ") ||
+            text.includes(" find ")
+        );
+
+    }
+
+
+    const prefixes = [
+
+        "is ",
+        "can ",
+        "get ",
+        "does ",
+        "has ",
+        "block ",
+        "player ",
+        "entity ",
+        "all ",
+        "convert ",
+        "if "
+
+    ];
+
+
+    return prefixes.some(prefix =>
+        text.startsWith(prefix)
+    );
 
 }

@@ -31,10 +31,10 @@ async function loadUpdates() {
 
 function createUpdateCard(update) {
 
-    const card = document.createElement("a");
+    const card = document.createElement("div");
 
     card.className = "update-card";
-    card.href = `update.html?version=${encodeURIComponent(update.version)}`;
+
 
     const image = update.version.replaceAll(".", "_");
 
@@ -44,15 +44,59 @@ function createUpdateCard(update) {
         year: "numeric"
     });
 
-    card.innerHTML = `
-        <img src="IMGUPDATES/v_${image}.png" alt="v${update.version}">
+
+    const link = document.createElement("a");
+
+    link.href =
+        `update.html?version=${encodeURIComponent(update.version)}`;
+
+    link.className =
+        "update-card-link";
+
+
+    link.innerHTML = `
+
+        <img
+            src="IMGUPDATES/v_${image}.png"
+            alt="v${update.version}"
+        >
+
         <div class="update-content">
-            <span class="update-version">v${update.version}</span>
+
+            <span class="update-version">
+                v${update.version}
+            </span>
+
             <h3>${update.title}</h3>
+
             <p>${update.subtitle}</p>
-            <span class="update-date">${date}</span>
+
+            <span class="update-date">
+                ${date}
+            </span>
+
         </div>
+
     `;
+
+
+    card.appendChild(link);
+
+
+    const likeArea =
+        document.createElement("div");
+
+    likeArea.className =
+        "update-like";
+
+
+    likeArea.appendChild(
+        createLikeButton(update.version)
+    );
+
+
+    card.appendChild(likeArea);
+
 
     return card;
 

@@ -1,40 +1,119 @@
 
-{
-    "version": "9.9.9",
-    "title": "Initial Release",
-    "subtitle": "Official release of the plugin, with support for 2026.1 [1.21.8]!",
-    "date": "2026-07-29",
+[
+    {
+        "version": "9.9.9",
+        "title": "Initial Release",
+        "subtitle": "Official release of the plugin, with support for 2026.1 [1.21.8]!",
+        "date": "2026-07-29",
 
-    "new_blocks": [
-        {
-            "category": "Block",
-            "name": "",
-            "description": ""
-        }
+        "new_blocks": [
+            {
+                "category": "Block",
+                "name": "",
+                "description": ""
+            }
 
 
-        
-    ],
+            
+        ],
 
-    "new_variables": [
-        {
-            "name": "",
-            "description": ""
-        }
-    ],
+        "new_variables": [
+            {
+                "name": "",
+                "description": ""
+            }
+        ],
 
-    "new_triggers": [
+        "new_triggers": [
 
-    ],
+        ],
 
-    "new_versions": [
-        "2025.3 [1.21.1]"
-    ],
+        "new_versions": [
+            "2025.3 [1.21.1]"
+        ],
 
-    "changes": [
-    ],
+        "changes": [
+        ],
 
-    "fixes": [
-        ""
-    ]
-}
+        "fixes": [
+            ""
+        ]
+    },
+    {
+        "version": "1.4.0",
+        "title": "The Living World",
+        "subtitle": "Entity themed update, with 8 new procedure blocks, triggers, and bug fixes!",
+        "date": "2026-08-17",
+
+        "new_blocks": [
+            {
+                "category": "Entity",
+                "name": "Make pet [ entity ] [SIT/STAND]",
+                "description": "Makes the selected pet sit or stand."
+            },
+            {
+                "category": "Entity",
+                "name": "Make [ source entity ] BackStab entity [ entity ] with offset x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Teleports the source entity behind the target entity using the specified positional offset, making it useful for backstab-style attacks."
+            },
+            {
+                "category": "Entity",
+                "name": "Shake player [ entity ] camera with power [ x ] for [ x ] seconds",
+                "description": "Shakes the selected player's camera with the specified intensity for the given duration."
+            },
+            {
+                "category": "Entity",
+                "name": "Does [ entity ] have any [ Normal / Custom ] tasks",
+                "description": "Checks whether the entity has normal AI tasks or tasks created by the Advanced Procedures plugin."
+            },
+            {
+                "category": "Entity",
+                "name": "Is [ Entity ] [Climbing / Swinging MainHand / Swinging OffHand ]",
+                "description": "Checks whether the entity is currently doing the specified action."
+            },
+            {
+                "category": "Block",
+                "name": "Loop through all blocks tagged as [ tag ] in radius [ x ] use position x: [ x ] y: [ x ] z: [ x ] use block [ iterator ]",
+                "description": "Loops through all blocks with the specified tag within the given radius, starting from the nearest block."
+            },
+            {
+                "category": "Block",
+                "name": "Get [ Nearest / Furthest ] Block [ Block ] in distance [ x ]",
+                "description": "Returns the position vector of the nearest or furthest matching block within the specified distance."
+            },
+            {
+                "category": "Math",
+                "name": "Run only after [ x ] [Ticks / Seconds] { }",
+                "description": "Delays the execution of the blocks inside until the specified time has passed. Calls made before the delay finishes are ignored."
+            }
+
+
+            
+        ],
+
+        "new_variables": [
+            
+        ],
+
+        "new_triggers": [
+            {
+                "name": "When explosion occurs",
+                "description": "Triggers when an explosion occurs."
+            }
+        ],
+
+        "new_versions": [
+        ],
+
+        "changes": [
+        ],
+
+        "fixes": [
+            
+        ]
+    }
+]
+
+
+
+
