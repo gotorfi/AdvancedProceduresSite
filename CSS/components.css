@@ -342,6 +342,31 @@ tr:hover {
     text-decoration: none !important;
 }
 
+.update-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.update-header img {
+    width: 320px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-medium);
+}
+
+.update-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
 
 /* Like */
 
