@@ -493,6 +493,56 @@ tr:hover {
 
 }
 
+/* Like Toast */
+
+
+.like-toast {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform:
+        translate(-50%, 30px);
+
+    padding: 14px 22px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border: 1px solid var(--primary);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-large);
+
+    font-size: .9rem;
+    font-weight: 600;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+
+}
+
+
+.like-toast.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+
+}
+
 
 /* ========================================================= */
 /* MCREATOR STYLE PROCEDURE BLOCK */

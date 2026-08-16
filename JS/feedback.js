@@ -2,7 +2,7 @@
 
 
 const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxIjPHSgCSAoxB9uo7V0MG8fy1Q8iS97RXkmFdABa3HsLVL3znZQ-T8GoMa_luhEZgM_g/exec";
+    "https://script.google.com/macros/s/AKfycbzeagIoqN59grhUB-OawsnRyfkdAnkgo0rfwlaQQq2TNu2tzyLvgaBDbDQqZfvyAhCFRQ/exec";
 
 
 const category =

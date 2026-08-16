@@ -1,9 +1,55 @@
 "use strict";
 
 
-const LIKES_API =
-    "https://script.google.com/macros/s/AKfycbxIjPHSgCSAoxB9uo7V0MG8fy1Q8iS97RXkmFdABa3HsLVL3znZQ-T8GoMa_luhEZgM_g/exec";
+const LIKES_API = "https://script.google.com/macros/s/AKfycbyzJF6faopn9v_DmvU4mrBKLQ-RJwZ26kuipe10XCCYyev8yT40bVL7Gp7PQDUJWmjQzw/exec";
 
+
+
+
+
+function showLikeToast() {
+
+    let toast =
+        document.getElementById("like-toast");
+
+
+    if (!toast) {
+
+        toast =
+            document.createElement("div");
+
+        toast.id = "like-toast";
+
+        toast.className = "like-toast";
+
+        toast.textContent =
+            "Thank you for liking this update post!";
+
+        document.body.appendChild(toast);
+
+    }
+
+
+    requestAnimationFrame(() => {
+
+        toast.classList.add("show");
+
+    });
+
+
+    clearTimeout(
+        toast.hideTimeout
+    );
+
+
+    toast.hideTimeout =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 3000);
+
+}
 
 function getVisitorId() {
 
@@ -40,13 +86,21 @@ async function getLikeStatus(version) {
     const visitorId = getVisitorId();
 
     const url =
-        `${LIKES_API}?version=${encodeURIComponent(version)}&visitorId=${encodeURIComponent(visitorId)}`;
+        `${LIKES_API}` +
+        `?action=get` +
+        `&version=${encodeURIComponent(version)}` +
+        `&visitorId=${encodeURIComponent(visitorId)}`;
+
 
     try {
 
-        const response = await fetch(url);
+        const response =
+            await fetch(url);
 
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
 
         return data;
 
@@ -54,12 +108,20 @@ async function getLikeStatus(version) {
 
     catch (error) {
 
-        console.error("Failed to load likes:", error);
+        console.error(
+            "Failed to load likes:",
+            error
+        );
+
 
         return {
+
             success: false,
+
             likes: 0,
+
             liked: false
+
         };
 
     }
@@ -69,10 +131,15 @@ async function getLikeStatus(version) {
 
 async function toggleLike(version) {
 
-    const visitorId = getVisitorId();
+    const visitorId =
+        getVisitorId();
+
 
     const button =
-        document.querySelector(`[data-like-version="${CSS.escape(version)}"]`);
+        document.querySelector(
+            `[data-like-version="${CSS.escape(version)}"]`
+        );
+
 
     if (!button) {
         return;
@@ -83,34 +150,51 @@ async function toggleLike(version) {
         button.dataset.liked === "true";
 
 
+    const action =
+        currentlyLiked
+            ? "unlike"
+            : "like";
+
+
     button.disabled = true;
+
+
+    const url =
+        `${LIKES_API}` +
+        `?action=${encodeURIComponent(action)}` +
+        `&version=${encodeURIComponent(version)}` +
+        `&visitorId=${encodeURIComponent(visitorId)}`;
 
 
     try {
 
-        const response = await fetch(LIKES_API, {
+        console.log(
+            "Like request:",
+            url
+        );
 
-            method: "POST",
 
-            body: JSON.stringify({
-
-                version: version,
-                visitorId: visitorId,
-                action: currentlyLiked
-                    ? "unlike"
-                    : "like"
-
-            })
-
-        });
+        const response =
+            await fetch(url);
 
 
         const data =
             await response.json();
 
 
+        console.log(
+            "Like response:",
+            data
+        );
+
+
         if (!data.success) {
-            throw new Error(data.error || "Unknown error.");
+
+            throw new Error(
+                data.error ||
+                "Unknown error."
+            );
+
         }
 
 
@@ -120,11 +204,24 @@ async function toggleLike(version) {
             data.liked
         );
 
+
+        if (
+            action === "like" &&
+            data.liked
+        ) {
+
+            showLikeToast();
+
+        }
+
     }
 
     catch (error) {
 
-        console.error("Failed to update like:", error);
+        console.error(
+            "Failed to update like:",
+            error
+        );
 
     }
 
