@@ -1,10 +1,8 @@
 "use strict";
 
 
-const LIKES_API = "https://script.google.com/macros/s/AKfycbyzJF6faopn9v_DmvU4mrBKLQ-RJwZ26kuipe10XCCYyev8yT40bVL7Gp7PQDUJWmjQzw/exec";
-
-
-
+const LIKES_API =
+    "https://script.google.com/macros/s/AKfycbzQrZecBAKkGHlyvaUa6Zmek2Laol8SM5TNMJ4PiEuPouJXJ4JaOXsCWFOtXFFWzPBjpg/exec";
 
 
 function showLikeToast() {
@@ -51,18 +49,122 @@ function showLikeToast() {
 
 }
 
+
+function createFloatingHearts() {
+
+    const container =
+        document.createElement("div");
+
+    container.className =
+        "floating-hearts";
+
+    document.body.appendChild(container);
+
+
+    const amount =
+        Math.floor(
+            Math.random() * 11
+        ) + 12;
+
+
+    for (let i = 0; i < amount; i++) {
+
+        const heart =
+            document.createElement("img");
+
+
+        heart.src =
+            "IMG/heart.png";
+
+        heart.alt = "";
+
+        heart.className =
+            "floating-heart";
+
+
+        const startX =
+            Math.random() * 100;
+
+        const drift =
+            (Math.random() - 0.5) * 260;
+
+        const duration =
+            1.8 + Math.random() * 2.2;
+
+        const delay =
+            Math.random() * 0.7;
+
+        const opacity =
+            0.3 + Math.random() * 0.7;
+
+        const size =
+            18 + Math.random() * 22;
+
+
+        heart.style.left =
+            `${startX}%`;
+
+        heart.style.width =
+            `${size}px`;
+
+        heart.style.height =
+            `${size}px`;
+
+        heart.style.opacity =
+            opacity;
+
+        heart.style.setProperty(
+            "--heart-drift",
+            `${drift}px`
+        );
+
+        heart.style.animationDuration =
+            `${duration}s`;
+
+        heart.style.animationDelay =
+            `${delay}s`;
+
+
+        container.appendChild(
+            heart
+        );
+
+    }
+
+
+    setTimeout(() => {
+
+        container.remove();
+
+    }, 4500);
+
+}
+
+
 function getVisitorId() {
 
-    const cookieName = "advanced_procedures_visitor";
+    const cookieName =
+        "advanced_procedures_visitor";
 
-    const cookies = document.cookie.split(";");
+    const cookies =
+        document.cookie.split(";");
+
 
     for (const cookie of cookies) {
 
-        const [name, ...value] = cookie.trim().split("=");
+        const [
+            name,
+            ...value
+        ] =
+            cookie.trim().split("=");
+
 
         if (name === cookieName) {
-            return decodeURIComponent(value.join("="));
+
+            return decodeURIComponent(
+                value.join("=")
+            );
+
         }
 
     }
@@ -83,7 +185,9 @@ function getVisitorId() {
 
 async function getLikeStatus(version) {
 
-    const visitorId = getVisitorId();
+    const visitorId =
+        getVisitorId();
+
 
     const url =
         `${LIKES_API}` +
@@ -168,24 +272,12 @@ async function toggleLike(version) {
 
     try {
 
-        console.log(
-            "Like request:",
-            url
-        );
-
-
         const response =
             await fetch(url);
 
 
         const data =
             await response.json();
-
-
-        console.log(
-            "Like response:",
-            data
-        );
 
 
         if (!data.success) {
@@ -209,6 +301,12 @@ async function toggleLike(version) {
             action === "like" &&
             data.liked
         ) {
+
+            animateLikeButton(
+                version
+            );
+
+            createFloatingHearts();
 
             showLikeToast();
 
@@ -234,10 +332,17 @@ async function toggleLike(version) {
 }
 
 
-function updateLikeButton(version, likes, liked) {
+function updateLikeButton(
+    version,
+    likes,
+    liked
+) {
 
     const button =
-        document.querySelector(`[data-like-version="${CSS.escape(version)}"]`);
+        document.querySelector(
+            `[data-like-version="${CSS.escape(version)}"]`
+        );
+
 
     if (!button) {
         return;
@@ -257,7 +362,14 @@ function updateLikeButton(version, likes, liked) {
     button.innerHTML = `
 
         <span class="like-icon">
-            ${liked ? "♥" : "♡"}
+
+            <img
+                src="${liked
+                    ? "IMG/heart.png"
+                    : "IMG/empty_heart.png"}"
+                alt=""
+            >
+
         </span>
 
         <span class="like-count">
@@ -269,13 +381,54 @@ function updateLikeButton(version, likes, liked) {
 }
 
 
+function animateLikeButton(version) {
+
+    const button =
+        document.querySelector(
+            `[data-like-version="${CSS.escape(version)}"]`
+        );
+
+
+    if (!button) {
+        return;
+    }
+
+
+    const icon =
+        button.querySelector(
+            ".like-icon"
+        );
+
+
+    if (!icon) {
+        return;
+    }
+
+
+    icon.classList.remove(
+        "like-pop"
+    );
+
+
+    void icon.offsetWidth;
+
+
+    icon.classList.add(
+        "like-pop"
+    );
+
+}
+
+
 function createLikeButton(version) {
 
     const button =
         document.createElement("button");
 
 
-    button.type = "button";
+    button.type =
+        "button";
+
 
     button.className =
         "like-button";
@@ -284,6 +437,7 @@ function createLikeButton(version) {
     button.dataset.likeVersion =
         version;
 
+
     button.dataset.liked =
         "false";
 
@@ -291,7 +445,12 @@ function createLikeButton(version) {
     button.innerHTML = `
 
         <span class="like-icon">
-            ♡
+
+            <img
+                src="IMG/empty_heart.png"
+                alt=""
+            >
+
         </span>
 
         <span class="like-count">
