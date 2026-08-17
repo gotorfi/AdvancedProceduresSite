@@ -74,7 +74,7 @@
             {
                 "category": "Entity",
                 "old_name": "Is [ x ] [ x ]",
-                "name": "Is [ x ] [ IsFrozen / Brainless / HasImmunity / HasCustomTask ... ]",
+                "name": "(REWORK) Is [ x ] [ IsFrozen / Brainless / HasImmunity / HasCustomTask ... ]",
                 "description": "Checks the current AI state of the entity, such as whether it is frozen or brainless. Added new stuff such as if entity is climbing."
             }
         ],
