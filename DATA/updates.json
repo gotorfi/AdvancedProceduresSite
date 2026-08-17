@@ -82,7 +82,8 @@
         "fixes": [
             "Pathfinding: Fixed the 'attempt to make a path to closest block', 'block exists in the radius x' and 'Get non-air y block at xz' block so that you can now also use e.g. 'Get block at xyz'.",
             "Skipping: Fixed 'Is entity AI state' where it doesn't check everything (only checked few things but ignored some things)",
-            "Java: There was still hard-coded stuff and now should no longer have those."
+            "Java: There was still hard-coded stuff and now should no longer have those.",
+            "Java: Inventory ArrayList variable had few problems with 1.21.1 versions. Now should been fixed!"
         ]
     },
     {
