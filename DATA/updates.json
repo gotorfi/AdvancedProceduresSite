@@ -1,6 +1,90 @@
 [
     
-    
+    {
+        "version": "1.4.0",
+        "title": "The Living World",
+        "subtitle": "Entity themed update, with 8 new procedure blocks, triggers, and bug fixes!",
+        "date": "2026-08-17",
+
+        "new_blocks": [
+            {
+                "category": "Entity",
+                "name": "(Suggestion) Make pet [ entity ] [SIT/STAND]",
+                "description": "Makes the selected pet sit or stand."
+            },
+            {
+                "category": "Entity",
+                "name": "(Suggestion) Make [ source entity ] BackStab entity [ entity ] with offset x: [ x ] y: [ x ] z: [ x ]",
+                "description": "Teleports the source entity behind the target entity using the specified positional offset, making it useful for backstab-style attacks."
+            },
+            {
+                "category": "Entity",
+                "name": "Shake player [ entity ] camera with power [ x ] for [ x ] seconds",
+                "description": "Shakes the selected player's camera with the specified intensity for the given duration."
+            },
+            {
+                "category": "Entity",
+                "name": "Use blackhole at x: [ x ] y: [ x ] z: [ x ] pull blocks in stacks [ x ] in radius [ x ] pull entities [ true/false ] in radius [ x ] with power [ x ] kill entities [ true/false ] active [ true/false ]",
+                "description": "Creates and configures a black hole at the specified coordinates to pull or destroy nearby blocks and entities based on custom radius, power, and toggle settings."
+            },
+            {
+                "category": "Entity",
+                "name": "(Suggestion) Change Mob details [ Change age / Change size ] to [ x ]",
+                "description": "Makes selected mob adult/baby or change mob's size."
+            },
+            {
+                "category": "Block",
+                "name": "(Suggestion) Loop through all blocks tagged as [ tag ] in radius [ x ] use position x: [ x ] y: [ x ] z: [ x ] use block [ iterator ]",
+                "description": "Loops through all blocks with the specified tag within the given radius, starting from the nearest block."
+            },
+            {
+                "category": "Block",
+                "name": "Get [ Nearest / Furthest ] Block [ Block ] in distance [ x ]",
+                "description": "Returns the position vector of the nearest or furthest matching block within the specified distance."
+            },
+            {
+                "category": "Math",
+                "name": "(Suggestion) Run only after [ x ] [Ticks / Seconds] { }",
+                "description": "Delays the execution of the blocks inside until the specified time has passed. Calls made before the delay finishes are ignored."
+            }
+
+
+            
+        ],
+
+        "new_variables": [
+            
+        ],
+
+        "new_triggers": [
+            {
+                "name": "When explosion occurs",
+                "description": "Triggers when an explosion occurs."
+            },
+            {
+                "name": "When inventory cursor changes",
+                "description": "Triggers whenever the item held on the player's mouse cursor changes while picking up, placing, or moving items inside an inventory."
+            }
+        ],
+
+        "new_versions": [
+        ],
+
+        "changes": [
+            {
+                "category": "Entity",
+                "old_name": "Is [ x ] [ x ]",
+                "name": "Is [ x ] [ IsFrozen / Brainless / HasImmunity / HasCustomTask ... ]",
+                "description": "Checks the current AI state of the entity, such as whether it is frozen or brainless. Added new stuff such as if entity is climbing."
+            }
+        ],
+
+        "fixes": [
+            "Pathfinding: Fixed the 'attempt to make a path to closest block', 'block exists in the radius x' and 'Get non-air y block at xz' block so that you can now also use e.g. 'Get block at xyz'.",
+            "Skipping: Fixed 'Is entity AI state' where it doesn't check everything (only checked few things but ignored some things)",
+            "Java: There was still hard-coded stuff and now should no longer have those."
+        ]
+    },
     {
         "version": "1.3.0",
         "title": "World Star",
