@@ -1,0 +1,52 @@
+[
+    {
+        "date": "2024-06-01",
+        "title": "Advanced Procedures 2",
+        "subtitle": "Advanced Procedures 2 is going under development after 100 blocks has been added!",
+        "thumbnail": "advanced_procedures_2_thumbnail_2.png",
+        "sections": [
+            {
+                "title": "Why do I need to make Advanced Procedures 2?",
+                "content": [
+                    "The Advanced Procedures plugin is already quickly approaching the 100 procedure block milestone. The challenge now is that this plugin contains an overwhelming amount of content for a single plugin. The more I add, the messier and more difficult to manage the plugin becomes. I have also noticed that I receive a massive number of new procedure block ideas from you, the plugin users. I would love to implement all of them, but after the 1.4.0 update, the plugin already has 85 blocks, meaning only 15 are left. If I were to implement all the ideas I have received so far and combine them with my own ideas, that alone would equal 15 new blocks—instantly hitting that 100-block milestone."
+                ]
+            },
+            {
+                "title": "How will Advanced Procedures 2 differ from the first one?",
+                "content": [
+                    "It won't, really. I will keep using the same style as the first one, but all the procedure blocks will be completely new! Part 2 will also feature a maximum of 100 new procedure blocks. However, the only real difference is that I will only support MCreator 2025.3+ going forward, focusing almost exclusively on NeoForge."
+                ]
+            },
+            {
+                "title": "Will you make Advanced Procedures 3 once that next 100 is reached?",
+                "content": [
+                    "No. I believe 200 procedure blocks is more than enough—maybe even a bit too much. Advanced Procedures 2 will function as an add-on plugin rather than the main one. It will simply contain the extra blocks that could not fit into the first part."
+                ]
+            },
+            {
+                "title": "How do I use two plugins? Do they work together?",
+                "content": [
+                    "Yes, I plan to design Part 2 to work seamlessly alongside the first part. Both will have their own categories for their respective blocks so things don't get mixed up. You can also choose to use only one of them if you prefer; there is no requirement to use both at the same time."
+                ]
+            },
+            {
+                "title": "What happens to the first part? Will you leave it abandoned and forgotten?",
+                "content": [
+                    "Absolutely not. Once the first part hits its 100-block cap, I will continue to add triggers, variables, support for new versions, and so on. Think of Part 2 as an extension of the first part specifically for procedure blocks. As I have mentioned before, I will keep updating the Advanced Procedures plugin until the end of 2027 and stop at the beginning of 2028. The same timeline applies to Part 2."
+                ]
+            },
+            {
+                "title": "When will Part 2 be released, and what happens to the first one when you have two projects instead of one?",
+                "content": [
+                    "I will start working on Part 2 as soon as the 100-procedure-block limit is reached. The 1.8.0 update will be the version where we hit that 100-block mark. This means I will add 5 new blocks to each of the upcoming 1.6.0, 1.7.0, and 1.8.0 updates. Consequently, it will take some time before I officially begin developing Part 2. My actual workload won't change much, as I will still follow the same routine even with two plugins under development."
+                ]
+            },
+            {
+                "title": "Why announce this so early then?",
+                "content": [
+                    "Literally just to let you know that 100 is not a hard limit for the project; any ideas beyond that will simply move to the second plugin. You all have so many great ideas that it is absolutely worth packing them all into the plugin ecosystem."
+                ]
+            }
+        ]
+    }
+]
